@@ -83,7 +83,6 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 2
     },
     icon: {
         width: 35,
@@ -95,7 +94,6 @@ const Styles = StyleSheet.create({
         marginLeft: 5,
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 2
     },
     floating_banner_title: {
         fontFamily: 'Montserrat-Regular',
@@ -116,9 +114,9 @@ const Styles = StyleSheet.create({
         color: 'rgb(125, 125, 125)'
     },
     content_list: {
-        marginTop: 12,
-        minHeight: '65%',
-        maxHeight: '65%'
+        marginTop: 20,
+        minHeight: '60%',
+        maxHeight: '60%'
     },
     null_card: {
         width: '100%',
@@ -127,9 +125,7 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 8,
-        borderWidth: 1,
         backgroundColor: 'rgb(255, 255, 255)',
-        borderColor: 'rgb(225, 225, 225)'
     },
     null_icon: {
         width: 150,
@@ -146,15 +142,13 @@ const Styles = StyleSheet.create({
         textTransform: 'capitalize'
     },
     profile_container: {
-        marginTop: 20
+        marginTop: 20,
+        maxHeight: '70%'
     },
     profile_row: {
         marginBottom: 5,
         flexDirection: 'row',
         alignItems: 'stretch'
-    },
-    profile_box: {
-        elevation: 1
     },
     form_button: {
         marginTop: 16,
@@ -177,7 +171,6 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 2
     },
     slide_value: {
         padding: 24,
@@ -185,7 +178,6 @@ const Styles = StyleSheet.create({
         marginHorizontal: 5,
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 2
     },
     slide_value_text: {
         textAlign: 'center',
@@ -196,6 +188,10 @@ const Styles = StyleSheet.create({
     slide_btn_icon: {
         width: 24,
         height: 24
+    },
+    nav_icon: {
+        width: 30,
+        height: 30
     }
 });
 

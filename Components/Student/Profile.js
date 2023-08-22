@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles/MainStyle';
 import Header from './Header';
@@ -30,7 +30,7 @@ class Profile extends Component {
                         <Text style={Styles.content_header_text}>Status Akun :</Text>
                         <Text style={Styles.content_header_text}>Akun Siswa</Text>
                     </View>
-                    <View style={Styles.profile_container}>
+                    <ScrollView style={Styles.profile_container}>
                         <View style={Styles.profile_row}>
                             <View style={[Styles.icon_box, Styles.profile_box]}>
                                 <Image source={require('../../Assets/Icons/user-tag.png')} style={Styles.icon} />
@@ -55,10 +55,10 @@ class Profile extends Component {
                                 <Text style={Styles.floating_banner_title}>radhitia@gmail.com</Text>
                             </View>
                         </View>
-                    </View>
-                    <TouchableOpacity style={Styles.form_button}>
-                        <Text style={Styles.button_text}>Keluar</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={Styles.form_button}>
+                            <Text style={Styles.button_text}>Keluar</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
                 </View>
             </View>
         );

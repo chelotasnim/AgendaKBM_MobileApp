@@ -38,7 +38,7 @@ class Header extends Component {
     startTimeGetter() {
         setInterval(() => {
             this.getNewTime();
-        }, 10000);
+        }, 1000);
     };
 
     minutesBlink() {
