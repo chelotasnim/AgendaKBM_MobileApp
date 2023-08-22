@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Styles from '../Styles/MainStyle';
 import Header from './Header';
+import Styles from '../Styles/MainStyle';
 
-class Home extends Component {
+class Schedule extends Component {
     render() {
         return (
             <View style={Styles.page}>
@@ -17,11 +17,14 @@ class Home extends Component {
                 >
                     <View style={Styles.wave_illusion_cover}></View>
                     <View style={Styles.floating_header}>
-                        <View style={Styles.icon_box}>
-                            <Image source={require('../../Assets/Icons/user-clock.png')} style={Styles.icon} />
+                        <View style={Styles.slide_btn}>
+                            <Image source={require('../../Assets/Icons/chevron-left.png')} style={[Styles.slide_btn_icon, Styles.prev_btn]} />
                         </View>
-                        <View style={Styles.floating_banner_title_box}>
-                            <Text style={Styles.floating_banner_title}>Jadwal Kelas Anda Hari Ini</Text>
+                        <View style={Styles.slide_value}>
+                            <Text style={Styles.slide_value_text}>Senin</Text>
+                        </View>
+                        <View style={Styles.slide_btn}>
+                            <Image source={require('../../Assets/Icons/chevron-right.png')} style={[Styles.slide_btn_icon, Styles.next_btn]} />
                         </View>
                     </View>
                 </LinearGradient>
@@ -29,7 +32,7 @@ class Home extends Component {
                     <View style={Styles.content_header}>
                         <Text style={Styles.content_header_text}>XII RPL 1</Text>
                         <Text style={[Styles.content_header_text, Styles.day_name]}>senin</Text>
-                        <Text style={Styles.content_header_text}>21 Agt 2023</Text>
+                        <Text style={Styles.content_header_text}>20 Jam</Text>
                     </View>
                     <ScrollView style={Styles.content_list}>
                         <View style={Styles.null_card}>
@@ -43,4 +46,4 @@ class Home extends Component {
     };
 };
 
-export default Home;
+export default Schedule;

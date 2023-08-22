@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
     page: {
         minHeight: '100%',
-        backgroundColor: 'rgb(255, 255, 255)'
+        backgroundColor: 'rgb(245, 245, 245)'
     },
     page_header: {
         paddingTop: 40,
@@ -51,6 +51,7 @@ const Styles = StyleSheet.create({
         fontSize: 32
     },
     app_time: {
+        textAlign: 'center',
         lineHeight: 32,
         fontSize: 32
     },
@@ -63,7 +64,7 @@ const Styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '102%',
-        backgroundColor: 'rgb(255, 255, 255)',
+        backgroundColor: 'rgb(245, 245, 245)',
         borderTopLeftRadius: 75
     },
     floating_header: {
@@ -82,8 +83,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 10,
-        shadowColor: 'rgba(0, 0, 0, .6)'
+        elevation: 2
     },
     icon: {
         width: 35,
@@ -95,8 +95,7 @@ const Styles = StyleSheet.create({
         marginLeft: 5,
         backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 8,
-        elevation: 10,
-        shadowColor: 'rgba(0, 0, 0, .6)'
+        elevation: 2
     },
     floating_banner_title: {
         fontFamily: 'Montserrat-Regular',
@@ -128,8 +127,9 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 8,
-        elevation: 8,
-        shadowColor: 'rgba(0, 0, 0, .12)'
+        borderWidth: 1,
+        backgroundColor: 'rgb(255, 255, 255)',
+        borderColor: 'rgb(225, 225, 225)'
     },
     null_icon: {
         width: 150,
@@ -144,6 +144,58 @@ const Styles = StyleSheet.create({
     },
     day_name: {
         textTransform: 'capitalize'
+    },
+    profile_container: {
+        marginTop: 20
+    },
+    profile_row: {
+        marginBottom: 5,
+        flexDirection: 'row',
+        alignItems: 'stretch'
+    },
+    profile_box: {
+        elevation: 1
+    },
+    form_button: {
+        marginTop: 16,
+        width: '100%',
+        padding: 18,
+        borderRadius: 5,
+        backgroundColor: 'rgb(32, 201, 151)'
+    },
+    button_text: {
+        textAlign: 'center',
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 16,
+        color: 'rgb(255, 255, 255)'
+    },
+    slide_btn: {
+        width: 50,
+        height: 68,
+        paddingLeft: 4,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgb(255, 255, 255)',
+        borderRadius: 8,
+        elevation: 2
+    },
+    slide_value: {
+        padding: 24,
+        flex: 1,
+        marginHorizontal: 5,
+        backgroundColor: 'rgb(255, 255, 255)',
+        borderRadius: 8,
+        elevation: 2
+    },
+    slide_value_text: {
+        textAlign: 'center',
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 14,
+        color: 'rgb(100, 100, 100)'
+    },
+    slide_btn_icon: {
+        width: 24,
+        height: 24
     }
 });
 
