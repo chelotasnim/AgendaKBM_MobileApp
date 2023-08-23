@@ -55,7 +55,7 @@ class Profile extends Component {
                                 <Text style={Styles.floating_banner_title}>radhitia@gmail.com</Text>
                             </View>
                         </View>
-                        <TouchableOpacity style={Styles.form_button}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={Styles.form_button}>
                             <Text style={Styles.button_text}>Keluar</Text>
                         </TouchableOpacity>
                     </ScrollView>

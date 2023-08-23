@@ -3,17 +3,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Image } from 'react-native';
 import Styles from '../Styles/MainStyle';
+import Login from '../Auth/Login';
 import Home from '../Student/Home';
 import Schedule from '../Student/Schedule';
 import Profile from '../Student/Profile';
 
 const Tab = createBottomTabNavigator();
 
-class Navigation extends Component {
+class StudentNavigation extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Tab.Navigator screenOptions={({ route }) => ({
+                <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused }) => {
                         let rn = route.name;
 
@@ -37,6 +38,11 @@ class Navigation extends Component {
                             };
                         };
                     },
+                    tabBarButton: [
+                        'Login'
+                    ].includes(route.name)
+                        ? () => null
+                        : undefined,
                     tabBarActiveTintColor: 'rgb(32, 201, 151)',
                     tabBarInactiveTintColor: 'rgba(150,150,150,0.7)',
                     tabBarStyle: {
@@ -58,14 +64,21 @@ class Navigation extends Component {
                     },
                     tabBarShowLabel: false,
                     headerShown: false,
+
                 })}>
                     <Tab.Screen name="Home" component={Home} />
                     <Tab.Screen name="Schedule" component={Schedule} />
                     <Tab.Screen name="Profile" component={Profile} />
+                    <Tab.Screen name="Login" component={Login} options={{
+                        tabBarStyle: {
+                            display: 'none',
+                        },
+                        headerShown: false
+                    }} />
                 </Tab.Navigator>
             </NavigationContainer>
         );
-    }
-}
+    };
+};
 
-export default Navigation;
+export default StudentNavigation;

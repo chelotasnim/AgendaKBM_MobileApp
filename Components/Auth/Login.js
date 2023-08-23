@@ -125,12 +125,12 @@ class Login extends Component {
                                 Password
                             </Animated.Text>
                         </View>
-                        <TouchableOpacity style={Styles.form_button}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} style={Styles.form_button}>
                             <Text style={Styles.button_text}>Masuk</Text>
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <Text style={Styles.form_footer_text}>Belum Punya Akun? <Text style={Styles.link} onPress={() => { Linking.openURL('https://127.0.0.1:8000/regist') }}>Daftar disini.</Text></Text>
+                        <Text style={Styles.form_footer_text}>Belum Punya Akun? <Text style={Styles.link} onPress={() => { Linking.openURL('DOMAIN NOT FOUND') }}>Daftar disini.</Text></Text>
                     </View>
                 </View>
             </View>
