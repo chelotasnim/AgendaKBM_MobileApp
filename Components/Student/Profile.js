@@ -3,8 +3,30 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles/MainStyle';
 import Header from './Header';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+    };
+
+    logout = async () => {
+        const token = await AsyncStorage.getItem('auth_token');
+        fetch('http://192.168.43.84:8000/api/logout', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                if (responseJson.token) {
+                    AsyncStorage.clear();
+                    this.props.navigation.navigate('Login');
+                };
+            })
+    };
+
     render() {
         return (
             <View style={Styles.page}>

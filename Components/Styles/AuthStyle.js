@@ -80,15 +80,33 @@ const Styles = StyleSheet.create({
         fontSize: 16,
         color: 'rgb(255, 255, 255)'
     },
-    form_footer_text: {
-        marginTop: 14,
-        textAlign: 'right',
-        fontFamily: 'Montserrat-Regular',
-        fontSize: 14,
-        color: 'rgb(150, 150, 150)'
+    alert_container: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        padding: 12,
+        paddingTop: 16,
+        zIndex: 100
     },
-    link: {
-        color: 'rgb(29, 175, 131)'
+    alert_box: {
+        marginBottom: 5,
+        maxWidth: 275,
+        minWidth: 275,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: 'rgba(255, 50, 50, .15)',
+        borderRadius: 5
+    },
+    alert_icon: {
+        width: 24,
+        height: 24,
+    },
+    alert_content: {
+        marginStart: 5,
+        fontSize: 14,
+        color: 'rgb(255, 50, 50)'
     }
 });
 
