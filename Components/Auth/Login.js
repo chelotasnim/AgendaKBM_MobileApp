@@ -64,7 +64,7 @@ class Login extends Component {
         this.setState({ notifications: current_notif });
     };
 
-    sendData = () => {
+    sendData = async () => {
         const credentials = {
             email: this.state.email_value,
             password: this.state.password_value
@@ -81,6 +81,7 @@ class Login extends Component {
             this.setState({ email_value: '', password_value: '' });
 
             if (result.data.token) {
+                AsyncStorage.clear();
                 AsyncStorage.setItem('auth_token', result.data.token);
                 this.props.navigation.navigate('Home');
             } else {

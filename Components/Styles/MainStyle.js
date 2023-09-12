@@ -77,7 +77,7 @@ const Styles = StyleSheet.create({
     },
     icon_box: {
         width: 68,
-        height: 68,
+        minHeight: 68,
         paddingLeft: 4,
         justifyContent: 'center',
         alignItems: 'center',
@@ -115,8 +115,8 @@ const Styles = StyleSheet.create({
     },
     content_list: {
         marginTop: 20,
-        minHeight: '60%',
-        maxHeight: '60%'
+        minHeight: '57%',
+        maxHeight: '57%'
     },
     null_card: {
         width: '100%',
@@ -192,6 +192,58 @@ const Styles = StyleSheet.create({
     nav_icon: {
         width: 30,
         height: 30
+    },
+    schedule_box: {
+        marginTop: 8,
+        borderRadius: 5,
+        backgroundColor: 'rgb(255, 255, 255)'
+    },
+    schedule_header: {
+        flexDirection: 'row',
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    schedule_name: {
+        fontSize: 12
+    },
+    schedule_status: {
+        paddingVertical: 3,
+        paddingHorizontal: 8,
+        borderRadius: 3,
+        fontSize: 12
+    },
+    schedule_detail: {
+        paddingTop: 12,
+        paddingHorizontal: 16,
+        paddingBottom: 16,
+        borderWidth: 1,
+        borderColor: 'rgb(235, 235, 235)'
+    },
+    schedule_subject: {
+        marginBottom: 5,
+        fontSize: 20
+    },
+    schedule_teacher: {
+        fontSize: 16
+    },
+    schedule_range: {
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    schedule_time: {
+        fontSize: 16
+    },
+    time_separator: {
+        fontSize: 20,
+        color: 'rgb(200, 200, 200)'
+    },
+    name_format: {
+        textTransform: 'capitalize'
     }
 });
 

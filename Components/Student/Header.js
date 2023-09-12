@@ -62,7 +62,7 @@ class Header extends Component {
                 <Image source={require('../../Assets/Images/wave.png')} style={Styles.page_header_wave} />
                 <View style={Styles.page_header}>
                     <View>
-                        <Text style={[Styles.page_header_main_content, Styles.normal_text, Styles.user_name]}>Hi! Radhitia Pratama</Text>
+                        <Text style={[Styles.page_header_main_content, Styles.normal_text, Styles.user_name]}>Hi! {this.props.data}</Text>
                         <Text style={[Styles.page_header_main_content, Styles.normal_text, Styles.app_name]}>Agenda</Text>
                         <Text style={[Styles.page_header_main_content, Styles.bold_text, Styles.app_name]}>KBM</Text>
                     </View>

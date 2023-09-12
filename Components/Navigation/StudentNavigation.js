@@ -7,6 +7,7 @@ import Login from '../Auth/Login';
 import Home from '../Student/Home';
 import Schedule from '../Student/Schedule';
 import Profile from '../Student/Profile';
+import Session from '../Auth/Session';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +15,7 @@ class StudentNavigation extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
+                <Tab.Navigator initialRouteName="Session" screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused }) => {
                         let rn = route.name;
 
@@ -39,6 +40,7 @@ class StudentNavigation extends Component {
                         };
                     },
                     tabBarButton: [
+                        'Session',
                         'Login'
                     ].includes(route.name)
                         ? () => null
@@ -70,6 +72,12 @@ class StudentNavigation extends Component {
                     <Tab.Screen name="Schedule" component={Schedule} />
                     <Tab.Screen name="Profile" component={Profile} />
                     <Tab.Screen name="Login" component={Login} options={{
+                        tabBarStyle: {
+                            display: 'none',
+                        },
+                        headerShown: false
+                    }} />
+                    <Tab.Screen name="Session" component={Session} options={{
                         tabBarStyle: {
                             display: 'none',
                         },
