@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles/MainStyle';
@@ -27,6 +27,42 @@ const Schedules = (data) => {
     );
 };
 
+const Rest = (data) => {
+    return (
+        <>
+            <View style={Styles.separator_box}>
+                <View style={[Styles.separator_line, Styles.left_line]}></View>
+                <Text style={Styles.separator}>Istirahat</Text>
+                <View style={[Styles.separator_line, Styles.right_line]}></View>
+            </View>
+            <View style={Styles.schedule_box}>
+                <View style={Styles.schedule_header}>
+                    <Text style={Styles.schedule_name}>Jam Ke {data.schedule.jam_ke}</Text>
+                    <Text style={[Styles.schedule_status, { backgroundColor: data.schedule.bg, color: data.schedule.color }]}>{data.schedule.keterangan}</Text>
+                </View>
+                <View style={Styles.schedule_detail}>
+                    <Text style={Styles.schedule_subject}>{data.schedule.guru_mapel.mapel.nama_mapel}</Text>
+                    <Text style={Styles.schedule_teacher}>~ {data.schedule.guru_mapel.guru.name}</Text>
+                </View>
+                <View style={Styles.schedule_range}>
+                    <Text style={Styles.schedule_time}>{data.schedule.mulai}</Text>
+                    <Text style={Styles.time_separator}>/</Text>
+                    <Text style={Styles.schedule_time}>{data.schedule.selesai}</Text>
+                </View>
+            </View>
+        </>
+    );
+};
+
+const NotFound = () => {
+    return (
+        <View style={Styles.null_card}>
+            <Image style={Styles.null_icon} source={require('../../Assets/Icons/books.png')} />
+            <Text style={Styles.null_text}>Tidak Ada Jadwal Kelas</Text>
+        </View>
+    );
+};
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -36,9 +72,11 @@ class Home extends Component {
                 grade: ''
             },
             time: '',
-            data: [],
-            token: '',
-            found: ''
+            data: [{
+                id: 1,
+                found: false
+            }],
+            token: ''
         };
     };
 
@@ -64,13 +102,18 @@ class Home extends Component {
                 name = user_name[0];
             };
 
+            let data = this.state.data;
+            if (result.data.found == null) {
+                data = result.data.main_data.kelas.jadwal;
+            };
+
             this.setState({
                 user: {
                     name,
                     grade: `${result.data.main_data.kelas.jenjang.jenjang} ${result.data.main_data.kelas.name}`
                 },
                 time: result.data.now_date,
-                data: result.data.main_data.kelas.jadwal
+                data: data
             });
         });
     }
@@ -102,12 +145,17 @@ class Home extends Component {
                         <Text style={Styles.content_header_text}>{this.state.time.date}</Text>
                     </View>
                     <ScrollView style={Styles.content_list}>
-                        {/* <View style={Styles.null_card}>
-                            <Image style={Styles.null_icon} source={require('../../Assets/Icons/books.png')} />
-                            <Text style={Styles.null_text}>Tidak Ada Jadwal Kelas</Text>
-                        </View> */}
                         {
-                            this.state.data.map((data) => <Schedules key={data.id} schedule={data} />)
+                            this.state.data.map((data) => {
+                                if (data.found === false) {
+                                    return <NotFound key={data.id} />
+                                };
+
+                                if (data.rest === true) {
+                                    return <Rest key={data.id} schedule={data} />;
+                                };
+                                return <Schedules key={data.id} schedule={data} />;
+                            })
                         }
                     </ScrollView>
                 </View>

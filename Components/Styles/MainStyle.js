@@ -244,6 +244,49 @@ const Styles = StyleSheet.create({
     },
     name_format: {
         textTransform: 'capitalize'
+    },
+    separator_box: {
+        position: 'relative',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    separator_line: {
+        position: 'absolute',
+        width: '35%',
+        height: 1,
+        backgroundColor: 'rgb(225, 225, 225)'
+    },
+    left_line: {
+        transform: [{ translateX: -100 }]
+    },
+    right_line: {
+        transform: [{ translateX: 100 }]
+    },
+    separator: {
+        marginVertical: 24,
+        textAlign: 'center',
+        fontSize: 14,
+        color: 'rgb(150, 150, 150)'
+    },
+    border_button: {
+        marginTop: 12,
+        marginBottom: 100,
+        borderWidth: 1,
+        borderColor: 'rgb(32, 201, 151)',
+        backgroundColor: 'transparent'
+    },
+    border_button_text: {
+        color: 'rgb(32, 201, 151)'
+    },
+    floating_banner_title_input: {
+        paddingHorizontal: 20,
+        paddingVertical: 9,
+        borderWidth: 2,
+        borderColor: 'rgb(230, 230, 230)'
+    },
+    edit_button: {
+        marginBottom: 32
     }
 });
 

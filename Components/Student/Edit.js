@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles/MainStyle';
 import Header from './Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { BASE_URL } from '../Config';
-import { CommonActions } from '@react-navigation/native';
 
-class Profile extends Component {
+class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,29 +54,6 @@ class Profile extends Component {
         });
     };
 
-    logout = () => {
-        axios.get(`${BASE_URL}logout`, {
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + this.state.token
-            }
-        }).then(result => {
-            if (result.data.logout) {
-                this.clearSession();
-            };
-        });
-    };
-
-    async clearSession() {
-        await AsyncStorage.clear();
-        this.props.navigation.dispatch(
-            CommonActions.reset({
-                index: 0,
-                routes: [{ name: 'Login' }]
-            })
-        );
-    };
-
     render() {
         return (
             <View style={Styles.page}>
@@ -94,7 +70,7 @@ class Profile extends Component {
                             <Image source={require('../../Assets/Icons/profile.png')} style={Styles.icon} />
                         </View>
                         <View style={Styles.floating_banner_title_box}>
-                            <Text style={Styles.floating_banner_title}>Profile Akun Anda</Text>
+                            <Text style={Styles.floating_banner_title}>Edit Profile Akun Anda</Text>
                         </View>
                     </View>
                 </LinearGradient>
@@ -108,31 +84,31 @@ class Profile extends Component {
                             <View style={Styles.icon_box}>
                                 <Image source={require('../../Assets/Icons/user-tag.png')} style={Styles.icon} />
                             </View>
-                            <View style={Styles.floating_banner_title_box}>
-                                <Text style={[Styles.floating_banner_title, Styles.name_format]}>{this.state.user.fullname}</Text>
+                            <View style={[Styles.floating_banner_title_box, Styles.floating_banner_title_input]}>
+                                <TextInput placeholder='Wajib Mengisi Nama' style={[Styles.floating_banner_title, Styles.name_format]}>{this.state.user.fullname}</TextInput>
                             </View>
                         </View>
                         <View style={Styles.profile_row}>
                             <View style={Styles.icon_box}>
                                 <Image source={require('../../Assets/Icons/tag.png')} style={Styles.icon} />
                             </View>
-                            <View style={Styles.floating_banner_title_box}>
-                                <Text style={Styles.floating_banner_title}>{this.state.user.username}</Text>
+                            <View style={[Styles.floating_banner_title_box, Styles.floating_banner_title_input]}>
+                                <TextInput placeholder='Wajib Mengisi NISN' style={Styles.floating_banner_title}>{this.state.user.username}</TextInput>
                             </View>
                         </View>
                         <View style={Styles.profile_row}>
                             <View style={Styles.icon_box}>
                                 <Image source={require('../../Assets/Icons/at.png')} style={Styles.icon} />
                             </View>
-                            <View style={Styles.floating_banner_title_box}>
-                                <Text style={Styles.floating_banner_title}>{this.state.user.email}</Text>
+                            <View style={[Styles.floating_banner_title_box, Styles.floating_banner_title_input]}>
+                                <TextInput placeholder='Wajib Mengisi Email' style={Styles.floating_banner_title}>{this.state.user.email}</TextInput>
                             </View>
                         </View>
                         <TouchableOpacity onPress={() => this.logout()} style={Styles.form_button}>
-                            <Text style={Styles.button_text}>Keluar</Text>
+                            <Text style={Styles.button_text}>Simpan</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Edit')} style={[Styles.form_button, Styles.border_button]}>
-                            <Text style={[Styles.button_text, Styles.border_button_text]}>Ubah Data</Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile')} style={[Styles.form_button, Styles.border_button, Styles.edit_button]}>
+                            <Text style={[Styles.button_text, Styles.border_button_text]}>Batalkan</Text>
                         </TouchableOpacity>
                     </ScrollView>
                 </View>
@@ -141,4 +117,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+export default Edit;

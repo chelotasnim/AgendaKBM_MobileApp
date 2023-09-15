@@ -21,6 +21,17 @@ class Login extends Component {
         };
     }
 
+    componentDidMount() {
+        this.check_auth();
+    }
+
+    async check_auth() {
+        const token = await AsyncStorage.getItem('auth_token');
+        if (token != null) {
+            this.props.navigation.navigate('Home');
+        };
+    };
+
     handleInputFocus = (inputType, isFocused) => {
         const {
             email_label_pos,

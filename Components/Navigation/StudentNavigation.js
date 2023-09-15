@@ -7,6 +7,7 @@ import Login from '../Auth/Login';
 import Home from '../Student/Home';
 import Schedule from '../Student/Schedule';
 import Profile from '../Student/Profile';
+import Edit from '../Student/Edit';
 import Session from '../Auth/Session';
 
 const Tab = createBottomTabNavigator();
@@ -15,7 +16,7 @@ class StudentNavigation extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Tab.Navigator initialRouteName="Session" screenOptions={({ route }) => ({
+                <Tab.Navigator initialRouteName="Login" screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused }) => {
                         let rn = route.name;
 
@@ -41,7 +42,8 @@ class StudentNavigation extends Component {
                     },
                     tabBarButton: [
                         'Session',
-                        'Login'
+                        'Login',
+                        'Edit'
                     ].includes(route.name)
                         ? () => null
                         : undefined,
@@ -65,19 +67,24 @@ class StudentNavigation extends Component {
                         borderTopColor: 'rgb(245, 245, 245)'
                     },
                     tabBarShowLabel: false,
-                    headerShown: false,
-
+                    headerShown: false
                 })}>
-                    <Tab.Screen name="Home" component={Home} />
-                    <Tab.Screen name="Schedule" component={Schedule} />
-                    <Tab.Screen name="Profile" component={Profile} />
+                    <Tab.Screen name="Session" component={Session} options={{
+                        tabBarStyle: {
+                            display: 'none',
+                        },
+                        headerShown: false
+                    }} />
                     <Tab.Screen name="Login" component={Login} options={{
                         tabBarStyle: {
                             display: 'none',
                         },
                         headerShown: false
                     }} />
-                    <Tab.Screen name="Session" component={Session} options={{
+                    <Tab.Screen name="Home" component={Home} />
+                    <Tab.Screen name="Schedule" component={Schedule} />
+                    <Tab.Screen name="Profile" component={Profile} />
+                    <Tab.Screen name="Edit" component={Edit} options={{
                         tabBarStyle: {
                             display: 'none',
                         },

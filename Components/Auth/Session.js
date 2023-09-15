@@ -1,29 +1,34 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { Component } from 'react';
-import { ActivityIndicator, View } from 'react-native';
 
 class Session extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            token: ''
+        };
     };
 
     componentDidMount() {
-        const sessionValidation = async () => {
-            const authentication = await AsyncStorage.getItem('auth_token');
-            if (authentication) {
-                this.props.navigation.navigate('Home');
-            } else {
-                this.props.navigation.navigate('Login');
-            };
+        this.check_auth();
+    };
+
+    componentDidUpdate() {
+        this.check_auth();
+    };
+
+    async check_auth() {
+        const token = await AsyncStorage.getItem('auth_token');
+        if (token === null) {
+            this.props.navigation.navigate('Login');
         };
-        sessionValidation();
+
+        this.setState({ token: token });
     };
 
     render() {
         return (
-            <View>
-                <ActivityIndicator />
-            </View>
+            <></>
         );
     };
 }

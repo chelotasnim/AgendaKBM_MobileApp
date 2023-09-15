@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles/MainStyle';
+import Session from '../Auth/Session';
 
 class Header extends Component {
     constructor(props) {
@@ -46,9 +47,8 @@ class Header extends Component {
             this.setState({ minutes_opacity: 0 });
             setTimeout(() => {
                 this.setState({ minutes_opacity: 1 });
-            }, 500);
+            }, 100);
         }, 1000);
-
     };
 
     render() {
